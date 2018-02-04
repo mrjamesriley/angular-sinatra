@@ -7,11 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SmartTableComponent {
 
-  rows = [
-    { name: 'Austin', gender: 'Male', company: 'Swimlane' },
-    { name: 'Dany', gender: 'Male', company: 'KFC' },
-    { name: 'Molly', gender: 'Female', company: 'Burger King' },
-  ];
+  rows
 
   columns = [
     { prop: 'name', sortable: true },
@@ -40,7 +36,6 @@ export class SmartTableComponent {
   }
 
   onSort(event) {
-    console.log('now sorting...')
 
     var sortProperty  = event.sorts[0].prop
     var sortDirection = event.sorts[0].dir

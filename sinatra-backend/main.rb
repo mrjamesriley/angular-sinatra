@@ -10,8 +10,8 @@ set :expose_headers, "location,link"
 
 get '/users' do
   users = [
-    { name: 'Tony', username: 'teebug', followers: 100 },
-    { name: 'Reebug', username: 'ree100', followers: 280 },
+    { name: 'James', username: 'jamesbou', followers: 100 },
+    { name: 'Ree', username: 'ree100', followers: 280 },
     { name: 'Paul', username: 'paulage', followers: 100 },
     { name: 'Dan', username: 'dantheman', followers: 240 },
     { name: 'Robert', username: 'robee', followers: 310 },

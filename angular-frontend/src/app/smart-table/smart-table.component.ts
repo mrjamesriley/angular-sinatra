@@ -14,17 +14,41 @@ export class SmartTableComponent {
   ];
 
   columns = [
-    { prop: 'name'},
+    { prop: 'name', sortable: true },
     { prop: 'username' },
     { prop: 'followers' }
   ]
 
   constructor(private http: HttpClient) {
+    this.fetchUsers()
+  }
 
-    this.http.get("//localhost:4567/users").subscribe((response) => {
+  fetchUsers(opts={}) {
 
+    console.log('fetching users with the options: ' + JSON.stringify(opts))
+
+    var url = "//localhost:4567/users"
+
+    if(opts['sortProp']) {
+      url += `?sortProp=${opts['sortProp']}&sortDir=${opts['sortDir']}`
+    }
+
+    this.http.get(url).subscribe((response) => {
       this.rows = response['users']
-
     })
+
+  }
+
+  onSort(event) {
+    console.log('now sorting...')
+
+    var sortProperty  = event.sorts[0].prop
+    var sortDirection = event.sorts[0].dir
+
+    this.fetchUsers({
+      sortProp: sortProperty,
+      sortDir: sortDirection
+    })
+
   }
 }

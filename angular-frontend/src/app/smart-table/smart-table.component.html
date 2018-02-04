@@ -1,6 +1,8 @@
 <div>
   <ngx-datatable 
     [rows]="rows"
-    [columns]="columns">
+    [columns]="columns"
+    [externalSorting]="true"
+    (sort)="onSort($event)">
   </ngx-datatable>
 </div>
